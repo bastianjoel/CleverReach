@@ -22,7 +22,6 @@
     <f:if condition="{node.properties.useAjax}">
         <f:then>
             <f:render section="ajax" />
-
         </f:then>
         <f:else>
             <f:render section="standard" />
@@ -33,24 +32,45 @@
 
 <f:section name="standard">
     <f:form action="subscribe" method="post" class="cleverreach__form">
-        <f:form.textfield name="receiverData[email]" placeholder="{f:translate(id: 'email.placeholder', source: 'RegistrationForm')}"/>
+        <div class="row">
+            <div class="col-xs-8">
+                <f:form.textfield name="receiverData[email]" placeholder="{f:translate(id: 'email.placeholder', source: 'RegistrationForm')}"/>
+            </div>
+            <div class="col-xs-4">
+                <f:form.hidden name="receiverData[source]" value="{sourceUrl}"/>
+                <f:form.hidden name="receiverData[groupId]" value="{node.properties.groupId}"/>
 
-        <f:form.hidden name="receiverData[source]" value="{sourceUrl}"/>
-        <f:form.hidden name="receiverData[groupId]" value="{node.properties.groupId}"/>
+                <f:form.submit value="{f:translate(id: 'submit.value', source: 'RegistrationForm')}"/>
+            </div>
+        </div>
 
-        <f:form.submit value="{f:translate(id: 'submit.value', source: 'RegistrationForm')}"/>
+        <br>
+        <label>
+            <f:form.checkbox name="receiverData[privacy]" value="Y"/>
+            <span>Hiermit erkläre ich mich einvestanden, dass meine in das Formular eingegebenen Daten elektronisch gespeichert, verarbeitet und genutzt werden. Mir ist bekannt, dass ich meine Einwilligung jederzeit widerrufen kann.</span>
+        </label>
     </f:form>
 </f:section>
 
 
 <f:section name="ajax">
     <form action="{f:uri.action(action: 'subscribe', controller: 'Ajax', package: 'KaufmannDigital.CleverReach', useParentRequest: true, absolute: true)}" method="post" class="cleverreach__form cleverreach__form--ajax">
-        <input type="text" name="receiverData[email]" placeholder="{f:translate(id: 'email.placeholder', source: 'RegistrationForm')}" />
+        <div class="row">
+            <div class="col-xs-8">
+                <input class="rounded" type="text" name="receiverData[email]" placeholder="{f:translate(id: 'email.placeholder', source: 'RegistrationForm')}" />
+            </div>
+            <div class="col-xs-4">
+                <input class="button primary" type="submit" value="{f:translate(id: 'submit.value', source: 'RegistrationForm')}"/>
+            </div>
+        </div>
+        <br>
+        <label>
+            <input type="checkbox" name="receiverData[privacy]" value="Y">
+            <span>Hiermit erkläre ich mich einvestanden, dass meine in das Formular eingegebenen Daten elektronisch gespeichert, verarbeitet und genutzt werden. Mir ist bekannt, dass ich meine Einwilligung jederzeit widerrufen kann.</span>
+        </label>
 
         <input type="hidden" name="receiverData[source]" value="{sourceUrl}"/>
         <input type="hidden" name="receiverData[groupId]" value="{node.properties.groupId}"/>
         <input type="hidden" name="registrationForm" value="{node.contextPath}"/>
-
-        <input type="submit" value="{f:translate(id: 'submit.value', source: 'RegistrationForm')}"/>
     </form>
 </f:section>

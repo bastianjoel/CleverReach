@@ -27,6 +27,12 @@ class ReceiverDataValidator extends AbstractValidator
      */
     public function isValid($value)
     {
+        if (!isset($value['privacy'])) {
+            $this->addError('Please accept the TOS', 1504541585);
+
+            return; //We can exit here, if there is no valid email.
+        }
+
         if (filter_var($value['email'], FILTER_VALIDATE_EMAIL) === false) {
             $this->addError('You have to supply a valid E-Mail Address', 1504541575);
 
