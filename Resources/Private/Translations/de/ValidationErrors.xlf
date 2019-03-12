@@ -3,16 +3,16 @@
         <file original="" product-name="KaufmannDigital.CleverReach" source-language="de" datatype="plaintext">
                 <body>
                         <trans-unit id="1504541575" xml:space="preserve">
-                                <source>Bitte geben Sie eine gültige E-Mail Adresse an.</source>
+                                <source>Bitte gebe eine gültige E-Mail Adresse an.</source>
                         </trans-unit>
                         <trans-unit id="1504541578" xml:space="preserve">
-                                <source>Listen-ID fehlerhaft. Bitte kontaktieren Sie den Webmaster.</source>
+                                <source>Listen-ID fehlerhaft. Bitte kontaktiere den Webmaster.</source>
                         </trans-unit>
                         <trans-unit id="1504541582" xml:space="preserve">
                                 <source>Diese E-Mail Adresse befindet sich schon in der Liste von Empfängern.</source>
                         </trans-unit>
                         <trans-unit id="1504541585" xml:space="preserve">
-                                <source>Bitte akzeptieren Sie den Datenschutzhinweis.</source>
+                                <source>Bitte akzeptiere den Datenschutzhinweis.</source>
                         </trans-unit>
                 </body>
         </file>
